@@ -6,14 +6,14 @@ namespace Lab3.SortingAlgorithms
     /// <summary>
     /// A counting sort implementation.
     /// </summary>
-    public class CountingSort
+    public class CountingSort : ISortableInt
     {
         /// <summary>
         /// Sort given integers.
         /// </summary>
-        public int[] Sort(IEnumerable<int> enumerable)
+        public int[] Sort(int[] array)
         {
-            var lengthAndMax = getLengthAndMax(enumerable);
+            var lengthAndMax = getLengthAndMax(array);
 
             var length = lengthAndMax.Item1;
             var max = lengthAndMax.Item2;
@@ -22,7 +22,7 @@ namespace Lab3.SortingAlgorithms
             var countArray = new int[max + 1];
 
             //count the appearances of elements
-            foreach (var item in enumerable)
+            foreach (var item in array)
             {
                 if (item < 0)
                 {
@@ -43,7 +43,7 @@ namespace Lab3.SortingAlgorithms
             var result = new int[length];
 
             //now assign result
-            foreach (var item in enumerable)
+            foreach (var item in array)
             {
                 var index = countArray[item];
                 result[index - 1] = item;

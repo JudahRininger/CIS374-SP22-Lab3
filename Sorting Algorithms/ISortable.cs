@@ -12,4 +12,8 @@ namespace Lab3.SortingAlgorithms
     {
         int[] Sort(int[] array);
     }
+    public interface ISortableDouble
+    {
+        double[] Sort(double[] array);
+    }
 }
